@@ -38,7 +38,7 @@ def homepage(request):
     products = Products.objects.all()
 
     return render(request=request,
-                  template_name = "main/index.html",
+                  template_name = "main/home.html",
                   context={"sales":sales,
                       "categories":categories,
                       "products":products,

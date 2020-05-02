@@ -17,11 +17,11 @@ class Categories(models.Model):
 class Sales(models.Model):
     category = models.ForeignKey(Categories, default=1, verbose_name="category", on_delete=models.SET_DEFAULT)
     discount = models.IntegerField()
-    image = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    # image = models.ImageField(upload_to='uploads/', height_field=None, width_field=None, max_length=100)
+    image = models.ImageField()
     
-
     def __str__(self):
-        return self.category
+        return self.category.category
 
 class Tags(models.Model):
     tag = models.CharField(max_length=100)
@@ -35,17 +35,16 @@ class Tags(models.Model):
 class Products(models.Model):
     name = models.CharField(max_length=200)
     published = models.DateTimeField("date published", default=datetime.now())
-    image = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    # image = models.ImageField(upload_to='uploads/', height_field=None, width_field=None, max_length=100)
+    image = models.ImageField()
     description = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=7, decimal_places=2)
     quantity = models.IntegerField()
 
-    slug = models.CharField(max_length=200)
-
     category = models.ForeignKey(Categories, default=1, verbose_name="category", on_delete=models.SET_DEFAULT)
 
     def __str__(self):
-        return self.product_name
+        return self.name
 
     
     

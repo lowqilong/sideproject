@@ -1,12 +1,11 @@
 from django.contrib import admin
-from .models import Products, Categories
+from .models import Sales, Products, Categories, Tags
 from django.db import models
 
 # Register your models here.
 class ProductAdmin(admin.ModelAdmin):
     fieldsets = [
         ("Name/date", {"fields": ["name", "published"]}),
-        ("URL", {"fields": ["slug"]}),
         ("Image", {"fields": ["image"]}),
         ("Description", {"fields": ["description"]}),
         ("Price", {"fields": ["price"]}),
@@ -15,6 +14,7 @@ class ProductAdmin(admin.ModelAdmin):
     ]
 
 admin.site.register(Categories)
-
+admin.site.register(Tags)
+admin.site.register(Sales)
 admin.site.register(Products, ProductAdmin)
 
