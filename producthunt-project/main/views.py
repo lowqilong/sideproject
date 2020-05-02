@@ -38,10 +38,10 @@ def homepage(request):
     products = Products.objects.all()
 
     return render(request=request,
-                  template_name = "main/home.html",
+                  template_name = "main/index.html",
                   context={"sales":sales,
                       "categories":categories,
-                      "products":products,
+                      "products":products
                   })
 
 

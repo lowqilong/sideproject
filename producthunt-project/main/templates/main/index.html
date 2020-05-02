@@ -329,31 +329,21 @@
         <div class="seq-screen">
           <ul class="seq-canvas">
             <!-- single slide item -->
+            {% for sale in sales %}
+              <li>
+                <div class="seq-model">
+                  <img data-seq src="{{media_url}}{{sale.image.url}}" alt="{{sale.image}} img" />
+                </div>
+                <div class="seq-title">
+                  <span data-seq>Save Up to {{sale.discount}}% Off</span>                
+                  <h2 data-seq>{{sale.category}} Collection</h2>                
+                  <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
+                  <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
+                </div>
+              </li>
+            {% endfor %}
+            {% comment %} <!-- single slide item -->
             <li>
-              <div class="seq-model">
-                <img data-seq src="" alt="Men slide img" />
-              </div>
-              <div class="seq-title">
-               <span data-seq>Save Up to 75% Off</span>                
-                <h2 data-seq>Men Collection</h2>                
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
-              </div>
-            </li>
-            <li>
-              <div class="seq-model">
-                <img data-seq src="/static/main/css/markups/img/client-brand-joomla.png" alt="Men slide img" />
-              </div>
-              <div class="seq-title">
-               <span data-seq>Save Up to 75% Off</span>                
-                <h2 data-seq>Men Collection</h2>                
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
-              </div>
-            </li>
-            
-            <!-- single slide item -->
-            {% comment %} <li>
               <div class="seq-model">
                 <img data-seq src="img/slider/2.jpg" alt="Wristwatch slide img" />
               </div>
@@ -363,8 +353,8 @@
                 <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
                 <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
               </div>
-            </li>
-            <!-- single slide item -->
+            </li> {% endcomment %}
+            {% comment %} <!-- single slide item -->
             <li>
               <div class="seq-model">
                 <img data-seq src="img/slider/3.jpg" alt="Women Jeans slide img" />
@@ -399,7 +389,7 @@
                 <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
                 <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
               </div>
-            </li>                    {% endcomment %}
+            </li> {% endcomment %}
           </ul>
         </div>
         <!-- slider navigation btn -->
