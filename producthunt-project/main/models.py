@@ -3,8 +3,6 @@ from datetime import datetime
 
 # Create your models here.    
 
-class 
-
 class Categories(models.Model):
     category = models.CharField(max_length=200)
 
@@ -43,14 +41,6 @@ class Products(models.Model):
     price = models.DecimalField(max_digits=7, decimal_places=2)
     quantity = models.IntegerField()
     category = models.ForeignKey(Categories, default=1, verbose_name="category", on_delete=models.SET_DEFAULT)
-
-    @property
-    def discount(self):
-        if Sales.objects.get(category = self.category):
-            return Sales.objects.get(category = self.category).select_related('discount')
-        else:
-            return 0
-
 
     def __str__(self):
         return self.name

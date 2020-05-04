@@ -36,14 +36,24 @@ def homepage(request):
     sales = Sales.objects.all()
     categories = Categories.objects.all()
     default_category = categories[0]
+
+    product_price = {}
     category_products = Products.objects.filter(category__category = default_category)
+    category_sales = [s.category for s in sales]
+
+    for product in category_products:
+        if product.category in category_sales:
+            discount = Sales.objects.get(category = product.category).discount
+            discounted_price = float(product.price) * (1 - (discount/100))
+            product_price[product] = format(discounted_price, '.2f')
 
     return render(request=request,
                   template_name = "main/index.html",
                   context={"sales":sales,
                       "categories":categories,
                       "default_category": default_category,
-                      "default_products": category_products,
+                      "category_sales": category_sales,
+                      "default_products": product_price,
                   })
 
 

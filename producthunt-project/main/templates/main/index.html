@@ -444,15 +444,15 @@
                     <!-- Start men product category -->
                     <div class="tab-pane fade in active" id="men">
                       <ul class="aa-product-catg">
-                        {% for product in default_products %}
-                          {% if product.discount >= 0 %}
+                        {% for product, price in default_products.items %}
+                          {% if product.category in category_sales %}
                             <li>
                               <figure>
                                 <a class="aa-product-img" href="#"><img src="{{product.image.url}}" alt="{{product.image}}img" width="250px" height="300px"></a>
                                 <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
                                   <figcaption>
                                   <h4 class="aa-product-title"><a href="#">{{product.name}}</a></h4>
-                                  <span class="aa-product-price">${{product.price}}</span><span class="aa-product-price"><del>${{product.price}}</del></span>
+                                  <span class="aa-product-price">${{price}}</span><span class="aa-product-price"><del>${{product.price}}</del></span>
                                 </figcaption>
                               </figure>                        
                               <div class="aa-product-hvr-content">
