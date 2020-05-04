@@ -35,13 +35,15 @@ def single_slug(request, single_slug):
 def homepage(request):
     sales = Sales.objects.all()
     categories = Categories.objects.all()
-    products = Products.objects.all()
+    default_category = categories[0]
+    category_products = Products.objects.filter(category__category = default_category)
 
     return render(request=request,
                   template_name = "main/index.html",
                   context={"sales":sales,
                       "categories":categories,
-                      "products":products
+                      "default_category": default_category,
+                      "default_products": category_products,
                   })
 
 
